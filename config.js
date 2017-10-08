@@ -1,6 +1,6 @@
 (function(module){
     var exports=module.exports={};
-    //易源接口应用ID
+    //接口应用ID
     var appid=44628;
     //接口密钥
     var secret="0f8897306f0446f4bb207b1af5f894a6";
