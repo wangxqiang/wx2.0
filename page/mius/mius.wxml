@@ -1,0 +1,84 @@
+<!-- 我的音乐 -->
+      <view class="over view">
+          <view class="container vie {{mus==1?'cu':''}}">
+              <view class="rank-list">
+                  <block  wx:for="{{ranks}}"  wx:key="{{item.type}}">
+                      <view class="rank-item">
+                         <view data-num="{{item.type}}"  class="text" bindtap="ranks"> {{item.text}} </view>
+                          <view class="arrow"/>
+                        </view>
+                  </block>
+              </view>
+          </view>
+                <!-- 单曲列表 -->
+      <scroll-view  scroll-y="true" class="{{mus==2?'cu':''}} vie">
+                    <view class="board">
+                        <image src="{{board}}" />
+                    </view>
+                    <view class="songlist">
+                        <block wx:for="{{songlist}}"  wx:key="song_id">
+                           <view   class="songitem">
+                             <view   class="song-play" > {{item.text}}
+                             <image src="/images/play.png"   data-num='{{item.songid}}'  bindtap="songlist" />
+                             </view>
+                             <view class="song-detail"  data-num='{{item.songid}}'  bindtap="songlist">
+                                  <view class="song-title"  data-num='{{item.songid}}'  bindtap="songlist">{{item.songname}}</view>
+                                  <view class="song-subtitle"  data-num='{{item.songid}}'  bindtap="songlist">{{item.singername}}-{{item.seconds}}</view>
+                             </view >
+                          </view>
+                        </block>
+                    </view>
+                    <loading hidden="{{!loading}}">
+                    正在加载音乐……
+                    </loading>
+                </scroll-view>
+                <!-- 播放界面 -->
+                <view class="playing container vie {{mus==3?'cu':''}}">
+                    <view class="thumbnail">
+                        <image src="{{song.albumpic_big}}" />
+                    </view>
+                    <view class="detail">
+                        <view class="title">{{song.songname}}</view>
+                        <view class="author">{{song.singername}}</view>
+                        <view class="action">
+                            <view class="act-toggle" bindtap="playToggle">
+                                <image src="/images/{{isPlaying ? 'pause' : 'play'}}.png" />
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <!-- 搜索界面 -->
+                <view class="container vie {{mus==4?'cu':''}}">
+                    <view class="search-area">
+                        <input class="sear"  bindinput="inputing" placeholder="请输入搜索关键字"
+                             value="{{value}}" />
+                        <button type="primary" size="mini" bindtap="bindSearch"
+                              loading="{{loading}}"> 立即搜索 </button>
+                    </view>
+                    <!-- 搜索音乐列表 -->
+                    <view class="songlist">
+                        <block wx:for="{{list}}" wx:key="{{index}}">
+                            <view class="songitem">
+                                <view class="song-play">
+                                    <image  data-num='{{item.songid}}' src="/images/play.png"  bindtap="songlist"/>
+                                </view>
+
+                                <view class="song-detail">
+                                    <view  data-num="{{item.songid}}" class="song-title"  bindtap="songlist">{{item.songname}}-{{item.singername}}
+                                    </view>
+                                    <view  data-num="{{item.songid}}" class="song-subtitle" bindtap="songlist">{{item.albumname}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                    <loading hidden="{{!loading}}">
+                        正在搜索音乐...
+                    </loading>
+                  </view>
+                <!-- 底部图标 -->
+                <view class="music" style="width: 80%;top:{{wheight}}">
+                    <image data-mus="1" src="{{music1}}" bindtap="musi"/>
+                     <image data-mus="3" src="{{music2}}" bindtap="musi"/>
+                    <image data-mus="4" src="{{music3}}" bindtap="musi"/>
+                 </view>
+      </view>

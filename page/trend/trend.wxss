@@ -1,0 +1,30 @@
+@import "../../wxParse/wxParse.wxss";
+.conts{
+ width:94%;
+  height: 100%; 
+ background-color:#ffffff;
+ padding: 28rpx;
+}
+.text{
+ text-align: center;
+ width:100%;
+
+ height:80rpx;
+ line-height: 80rpx;
+ font-size:48rpx;
+ font-weight: 700;
+}
+.textC{
+ width:85%;
+  margin: 0 auto;
+}
+.Dimg{
+ width:85%;
+ margin: 0 auto;
+ overflow: hidden;
+ }
+ .Dimgs{
+  width:100%;
+  margin: 0 auto;
+  overflow: hidden;
+ }

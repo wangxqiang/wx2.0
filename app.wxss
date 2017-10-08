@@ -1,0 +1,78 @@
+
+page,.page {
+  height: 100%;
+  overflow-x:hidden;
+  background-color:rgb(231,234, 238);
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Droid Sans Fallback', 'Microsoft Yahei', sans-serif;
+}
+image{
+border:none;
+ vertical-align: middle;
+}
+.page-bottom{
+  height: 100%;
+  width: 562.5rpx;
+  position: fixed;
+  left:-75%;
+  background-color: rgb(231,234, 238);
+  transition: All 0.4s ease;
+   -webkit-transition: All 0.8s ease ;
+  z-index: 0;
+}
+.btImg{
+display: inline-block;
+}
+.wc{
+  height:65rpx;
+  width: 520rpx;
+  line-height:65rpx;
+  color:#606163;
+  font-size: 42rpx;
+  font-weight: 900;
+  padding: 30rpx 0 30rpx 0;
+}
+.wc image{
+border-radius:0;
+}
+.cur{
+color:#48b0a4;
+}
+.page-content{
+  padding-top: 50rpx;
+}
+.page-top{
+  height: 91.8%;
+  width: 750rpx;
+  background-color:rgb(231,234, 238);
+  transition: All 0.4s ease;
+  -webkit-transition: All 0.8s ease;
+}
+.wqimg{
+  position: absolute;
+  left: 20rpx;
+  top: 31rpx;
+  width: 68rpx;
+  height: 38rpx;
+  padding:5rpx;
+  z-index: 1000;
+}
+.wq{
+Position:fixed;
+z-index:1000;
+width:100%;
+height:100rpx;
+background-color:#21bba6;
+text-align: center;
+transition: All 0.4s ease;
+  -webkit-transition: All 0.8s ease;
+}
+.topT{
+color: white;
+font-size:45rpx;
+height:100rpx;
+line-height:100rpx;
+color:800;
+}
+.wq1 .over{
+display: block;
+}

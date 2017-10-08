@@ -1,0 +1,216 @@
+<!--page/one/index.wxml-->
+<view class="page">
+  <!-- 菜单 -->
+  <view class="page-bottom" style="{{translate}}">
+        <view class="btImg"><image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image></view>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <view class="page-content">
+            <view data-num="1"  class="wc wc1 {{_num==1?'cur':''}}"  bindtap="urlTo"  style="{{color}};{{wc1}}">
+              <image class="ion" src="../../images/03.png" background-size="cover"></image>我的收藏
+            </view>
+            <view data-num="3" class="wc wc3 {{_num==3?'cur':''}}" bindtap="urlTo"  style="{{wc3}}">
+              <image class="ion" src="../../images/01.png" background-size="cover"></image>我的地图
+            </view>
+            <view data-num="2" class="wc wc2 {{_num==2?'cur':''}}" bindtap="urlTo" style="{{wc2}}">
+              <image class="ion" src="../../images/05.png" background-size="cover"></image>我的音乐
+            </view>
+           <view data-num="4" class="wc wc4 {{_num==4?'cur':''}}" bindtap="urlTo" style="{{wc4}}">
+              <image class="ion" src="../../images/04.png" background-size="cover"></image>美文欣赏
+            </view>
+            <view data-num="5" class="wc  wc5 {{_num==5?'cur':''}}" bindtap="urlTo" style="{{wc5}}">
+               <image class="ion" src="../../images/0.png" background-size="cover"></image>藏头诗制作
+            </view>
+            <view data-num="6" class="wc  wc6 {{_num==6?'cur':''}}"  style="{{wc6}}">
+                <image class="ion" src="../../images/02.png"background-size="cover"></image>
+                <view class="button">
+                  <text class="qg">强哥热线</text>
+                  <contact-button></contact-button>
+                  <contact-button></contact-button><contact-button></contact-button><contact-button></contact-button><contact-button></contact-button>
+                </view>
+            </view>
+        </view>
+        <view class='left-bottom'> 
+            <view class='left-bottom-l' bindtap="sz">
+                <image class="ion" src="../../images/06.png"background-size="cover"></image>
+                设置
+             </view>
+            <view class='left-bottom-r'>
+                <image class="ion" src="../../images/07.png"background-size="cover"></image>
+                认证
+            </view>
+       </view>
+
+  </view>
+  <!-- 菜单图标 -->
+  <view class="wq" style="{{trans}}">
+            <image bindtap="tap_ch" src="../../images/btn.png" class="wqimg"></image>
+            <text class="topT">{{tabname}}</text>
+  </view>
+  <!-- 内容部分 -->
+  <view  class="page-top" style="{{translate}}">
+  <view class="wq1">
+           <!-- 首页 -->
+        <view class="{{conter==1?'over':''}} view">
+          <block  wx:for="{{arr}}"  wx:key="{{arr.id}}">
+                <view class="time">{{item.data}} </view>
+                <view class="trend-con">
+                    <view class="trend-one" catchtap="Tap" id="{{item.t1url}}">
+                      <view class=""><image  src='{{item.t1img}}' class="trend-img"></image></view>
+                      <view class="trend-text">{{item.t1name}}</view>
+                    </view>
+                    <view class="trend-two" catchtap="Tap" id="{{item.t2url}}" wx:if="{{item.t2name}}">
+                    <view class="trend-twox">
+                      {{item.t2name}}
+                    </view>
+                    <view class="trend-twov" >
+                        <image src="{{item.t2img}}" class="trend-twoi"></image>
+                    </view>
+                    </view>
+                    <view class="trend-two" catchtap="Tap" id="{{item.t3url}}" wx:if="{{item.t3name}}">
+                    <view class="trend-twox">
+                    {{item.t3name}}
+                    </view>
+                    <view class="trend-twov">
+                        <image src="{{item.t3img}}" class="trend-twoi"></image>
+                    </view>
+                </view>
+              </view>
+          </block>
+      </view>
+    <!-- 我的音乐 -->
+      <view class="{{conter==2?'over':''}} view">
+      <image data-mus="3" src="../../images/mus.png" data-num="2"  bindtap="urlTo"  style="width: 100%; height:{{wheight}}"/>
+          <!-- <view class="container vie {{mus==1?'cu':''}}">
+              <view class="rank-list">
+                  <block  wx:for="{{ranks}}"  wx:key="{{item.type}}">
+                      <view class="rank-item">
+                        <view data-num="{{item.type}}"  class="text" bindtap="ranks"> {{item.text}} </view>
+                      <view class="arrow"/>
+                  </view>
+              </block>
+          </view>
+      </view> -->
+                <!-- 单曲列表 -->
+      <!-- <scroll-view  scroll-y="true" class="{{mus==2?'cu':''}} vie">
+                    <view class="board">
+                        <image src="{{board}}" />
+                    </view>
+                    <view class="songlist">
+                        <block wx:for="{{songlist}}"  wx:key="song_id">
+                           <view   class="songitem">
+                             <view   class="song-play" > {{item.text}}
+                             <image src="/images/play.png"   data-num='{{item.songid}}'  bindtap="songlist" />
+                             </view>
+                             <view class="song-detail"  data-num='{{item.songid}}'  bindtap="songlist">
+                                  <view class="song-title"  data-num='{{item.songid}}'  bindtap="songlist">{{item.songname}}</view>
+                                  <view class="song-subtitle"  data-num='{{item.songid}}'  bindtap="songlist">{{item.singername}}-{{item.seconds}}</view>
+                             </view >
+                          </view>
+                        </block>
+                    </view>
+                    <loading hidden="{{!loading}}">
+                    正在加载音乐……
+                    </loading>
+                </scroll-view> -->
+                <!-- 播放界面 -->
+                <!-- <view class="playing container vie {{mus==3?'cu':''}}">
+                    <view class="thumbnail">
+                        <image src="{{song.albumpic_big}}" />
+                    </view>
+                    <view class="detail">
+                        <view class="title">{{song.songname}}</view>
+                        <view class="author">{{song.singername}}</view>
+                        <view class="action">
+                            <view class="act-toggle" bindtap="playToggle">
+                                <image src="/images/{{isPlaying ? 'pause' : 'play'}}.png" />
+                            </view>
+                        </view>
+                    </view>
+                </view> -->
+                <!-- 搜索界面 -->
+                <!-- <view class="container vie {{mus==4?'cu':''}}">
+                    <view class="search-area">
+                        <input class="sear"  bindinput="inputing" placeholder="请输入搜索关键字"
+                             value="{{value}}" />
+                        <button type="primary" size="mini" bindtap="bindSearch"
+                              loading="{{loading}}"> 立即搜索 </button>
+                    </view> -->
+                    <!-- 搜索音乐列表 -->
+                    <!-- <view class="songlist">
+                        <block wx:for="{{list}}" wx:key="{{index}}">
+                            <view class="songitem">
+                                <view class="song-play">
+                                    <image  data-num='{{item.songid}}' src="/images/play.png"  bindtap="songlist"/>
+                                </view>
+
+                                <view class="song-detail">
+                                    <view  data-num="{{item.songid}}" class="song-title"  bindtap="songlist">{{item.songname}}-{{item.singername}}
+                                    </view>
+                                    <view  data-num="{{item.songid}}" class="song-subtitle" bindtap="songlist">{{item.albumname}}</view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                    <loading hidden="{{!loading}}">
+                        正在搜索音乐...
+                    </loading>
+                  </view> -->
+                <!-- 底部图标 -->
+                <!-- <view class="music">
+                    <image data-mus="1" src="{{music1}}" bindtap="musi"/>
+                     <image data-mus="3" src="{{music2}}" bindtap="musi"/>
+                    <image data-mus="4" src="{{music3}}" bindtap="musi"/>
+                 </view> -->
+      </view>
+            <!-- 地图 -->
+            <view class="{{conter==3?'over':''}} view">
+                <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" circles="{{circles}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: {{view.Height}}px;"></map>
+            </view>
+       <!-- 我的轮播图 -->
+      <view class="{{conter==4?'over':''}} view lbt">
+
+    <swiper class="swiper-box" indicator-dots="true"
+       autoplay="true" interval="3000" duration="2000" circular="true" bindchange="change">
+         <block wx:for="{{movies}}" wx:for-index="index">
+           <swiper-item>
+             <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>
+           </swiper-item>
+         </block>
+       </swiper>
+
+        <view>
+                 <block  wx:for="{{arrs}}"  wx:key="{{arrs.id}}">
+                     <view class='content-box' catchtap="Taps" id="{{item.id}}">
+                  <view class='l-box'>
+                      <view class='l-box-l'>
+                        <image style="width: 100%;height:100%" src="{{item.imgurl}}"/>
+                      </view>
+                     <view class='l-box-r'>
+                        <text class='r-h1'>{{item.name}}</text>
+                        <text>\n\t</text>
+                        <text class='r-p'>{{item.init}} </text>
+                      </view>
+                  </view>
+              </view>
+            </block>
+
+        </view>
+      </view>
+        <!-- 我的藏头诗 -->
+            <view class="{{conter==5?'over':''}} view">
+                <view class="itemView ctsCont">诗中要包括的字(4字)
+                    <input class="input" name="userName" placeholder="请输入" bindinput="userNameInput"/>
+                </view>
+                <view bindtap="uname" class="begin">开始生成</view>
+                <block wx:for="{{cts}}" wx:key="{{index}}">
+                    <view class="cC">
+                    <view class="cts">{{cts[index]}}</view>
+                    </view>
+                </block>
+            </view>
+            <!-- 我的客服 -->
+            <view class="{{conter==6?'over':''}} view">
+            </view>
+          </view>
+ </view>
+</view>
